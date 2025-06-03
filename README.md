@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# HarryPotter
 
 ```sh
 pnpm create astro@latest -- --template basics

@@ -1,0 +1,29 @@
+---
+import '/src/styles/global.css';
+import { getCharacterByName } from '../services/hp';
+import Personaje from './Personaje.astro';
+
+const url = new URL(Astro.request.url);
+const name = url.searchParams.get('name') ?? '';
+const character = name ? await getCharacterByName({ name }) : null;
+---
+
+<div class="buscador m-auto w-fit bg-amber-50">
+  <form action="" method="get" class="flex flex-col gap-3">
+    <input type="text" id="name" name="name" placeholder="Buscar" class="buscador-input border" autocomplete="off"/>
+    <button type="submit" class="buscador-button border">Buscar</button>
+  </form>
+</div>
+  {
+    character ? (
+      <Personaje 
+        name={character.name} 
+        species={character.species} 
+        gender={character.gender} 
+        house={character.house}
+        img = {character.image}
+      />
+    ) : name ? (
+      <p class="text-gray-700">Personaje no encontrado</p>
+    ) : null
+  }

@@ -7,8 +7,7 @@ export const getCharacterByName = async ({name} : {name: string}) => {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-        },
-        cache: "no-cache",
+        }
     });
     // const character = await res.json() as HarryPotter;
     // console.log(character)

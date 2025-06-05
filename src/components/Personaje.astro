@@ -4,16 +4,22 @@ interface Props {
   species: string
   gender: string
   house: string
+  alternateNames?: string[]
+  patronus?: string
+  wizard?: boolean
   img: string
 }
 
-const { name, species, gender, house, img } = Astro.props;
+const { name, species, gender, house, img, alternateNames, patronus, wizard } = Astro.props;
 ---
 
-<div class="buscador-result">
-        <h2 class="text-2xl font-bold">{name}</h2>
-        <p class="text-gray-700">Especie: {species}</p>
-        <p class="text-gray-700">Género: {gender}</p>
-        <p class="text-gray-700">Casa: {house}</p>
-        <img src={Astro.props.img} alt={name} class="w-48 h-48 object-cover rounded-lg mt-4" />
-      </div>
+<div class="buscador-result flex flex-col mx-auto my-2.5 py-3 w-[400px] rounded-xl bg-gray-700">
+  <h2 class="text-2xl text-white font-bold text-center">{name}</h2>
+  <p class="text-white pl-4">Especie: {species}</p>
+  <p class="text-white pl-4">Género: {gender}</p>
+  <p class="text-white pl-4">Casa: {house}</p>
+  <p class="text-white pl-4">Otros nombres: {alternateNames?.join(", ")}</p>
+  <p class="text-white pl-4">Patronus: {patronus}</p>
+  <p class="text-white pl-4">Mago: {wizard ? "Sí" : "No"}</p>
+  <img src={img} alt={name} class="w-3xs h-fit m-auto rounded-lg mt-4" />
+</div>

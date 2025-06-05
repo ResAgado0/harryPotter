@@ -7,19 +7,21 @@ interface Props {
   alternateNames?: string[]
   patronus?: string
   wizard?: boolean
+  wand?: [string, string[], number]
   img: string
 }
 
-const { name, species, gender, house, img, alternateNames, patronus, wizard } = Astro.props;
+const { name, species, gender, house, img, alternateNames, patronus, wizard, wand } = Astro.props;
 ---
 
 <div class="buscador-result flex flex-col mx-auto my-2.5 py-3 w-[400px] rounded-xl bg-gray-700">
   <h2 class="text-2xl text-white font-bold text-center">{name}</h2>
-  <p class="text-white pl-4">Especie: {species}</p>
-  <p class="text-white pl-4">Género: {gender}</p>
-  <p class="text-white pl-4">Casa: {house}</p>
-  <p class="text-white pl-4">Otros nombres: {alternateNames?.join(", ")}</p>
-  <p class="text-white pl-4">Patronus: {patronus}</p>
-  <p class="text-white pl-4">Mago: {wizard ? "Sí" : "No"}</p>
+  <p class="text-white pl-4"><span class="font-bold">Especie:</span> {species}</p>
+  <p class="text-white pl-4"><span class="font-bold">Género:</span> {gender}</p>
+  <p class="text-white pl-4"><span class="font-bold">Casa:</span> {house}</p>
+  <p class="text-white pl-4"><span class="font-bold">Otros nombres:</span> {alternateNames?.join(", ")}</p>
+  <p class="text-white pl-4"><span class="font-bold">Mago:</span> {wizard ? "Sí" : "No"}</p>
+  <p class="text-white pl-4"><span class="font-bold">Patronus:</span> {patronus}</p>
+  <p class="text-white pl-4"><span class="font-bold">Varita:</span> {wand?.[0]} Tipo: {wand?.[1]}, Longitud: {wand?.[2]} cm</p>
   <img src={img} alt={name} class="w-3xs h-fit m-auto rounded-lg mt-4" />
 </div>

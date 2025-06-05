@@ -14,14 +14,15 @@ import Personaje from '../components/Personaje.astro';
 			{await getCharacters().then(characters => 
 				characters.map(character => (
 					<Personaje 
-						name={character.name} 
-						species={character.species} 
-						gender={character.gender} 
-						house={character.house}
-						patronus={character.patronus}
-						wizard={character.wizard}
-						alternateNames={character.alternate_names}
-						img={character.image}
+						name = {character.name} 
+						species = {character.species} 
+						gender = {character.gender} 
+						house = {character.house}
+						alternateNames = {character.alternate_names}
+						wizard = {character.wizard}
+						wand = {[character.wand.wood, [character.wand.core], character.wand.length]}
+						patronus = {character.patronus}
+						img = {character.image}
 					/>
 				))
 			)}

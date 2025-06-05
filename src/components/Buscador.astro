@@ -22,9 +22,10 @@ const character = name ? await getCharacterByName({ name }) : null;
         species = {character.species} 
         gender = {character.gender} 
         house = {character.house}
-        patronus = {character.patronus}
-        wizard = {character.wizard}
         alternateNames = {character.alternate_names}
+        wizard = {character.wizard}
+        patronus = {character.patronus}
+        wand = {[character.wand.wood, [character.wand.core], character.wand.length]}
         img = {character.image}
       />
     ) : name ? (

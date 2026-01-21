@@ -1,15 +1,9 @@
 import { type HarryPotter } from "../types/personajes.ts";
+import characters from "../../public/hyptt/personajes.json";
 
 // Lógica para cliente (browser)
 export async function getCharacters() {
-    const res = await fetch('https://harrypotter.resagado.dev/hyptt/personajes.json', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
-    const characters = await res.json() as HarryPotter[];
-    return characters;
+    return characters as HarryPotter[];
 }
 
 export const getCharacterByName = async ({ name }: { name: string }) => {

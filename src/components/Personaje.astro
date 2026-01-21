@@ -14,7 +14,7 @@ interface Props {
 const { name, species, gender, house, img, alternateNames, patronus, wizard, wand } = Astro.props;
 ---
 
-<div class="buscador-result flex flex-col mx-auto my-2.5 py-3 w-[400px] rounded-xl bg-gray-700">
+<div class="buscador-result flex flex-col mx-auto my-2.5 py-3 max-w-96 min-w-80 rounded-xl bg-gray-700">
   <h2 class="text-2xl text-white font-bold text-center">{name}</h2>
   <p class="text-white pl-4"><span class="font-bold">Especie:</span> {species}</p>
   <p class="text-white pl-4"><span class="font-bold">Género:</span> {gender}</p>
